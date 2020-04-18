@@ -91,8 +91,8 @@ exports.listCategory = async (req, res) => {
   return new Promise((resolve, reject) => {
     try {
       let filter = {}
-      if (req._id) {
-        filter['_id'] = req.category
+      if (req.category) {
+        filter['_id'] = ObjectID(req.category)
       }
 
       Category.aggregate([
